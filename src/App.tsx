@@ -39,6 +39,7 @@ function App() {
         <input
           type="text"
           ref={dateInput}
+          placeholder="Ex: 07/12/2006"
           className="bg-transparent focus:ring-0 flex-1 rounded-lg outline-none border p-1 text-sm select-text"
           required
         />
