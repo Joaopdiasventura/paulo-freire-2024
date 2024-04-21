@@ -35,7 +35,7 @@ function App() {
 
   return (
     <div className="w-screen h-screen bg-black text-white flex justify-center items-center flex-col">
-      <form onSubmit={getSign} className="flex flex-col gap-1">
+      <form onSubmit={getSign} className="flex flex-col gap-1 justify-center">
         <input
           type="text"
           ref={dateInput}
