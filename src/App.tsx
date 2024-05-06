@@ -3,12 +3,15 @@ import { chineseZodiac, ChineseZodiacSign } from "./Signs";
 
 function parseDate(input: string): Date {
   const [day, month, year] = input.split("/").map(Number);
+  if (day > 31 || month > 12) {
+    return;
+  }
   return new Date(year, month - 1, day);
 }
 
 function findZodiacSign(dateInput: string): ChineseZodiacSign | undefined {
   const date = parseDate(dateInput);
-  if (isNaN(date.getTime())) {
+  if (date == undefined || isNaN(date.getTime())) {
     alert("DIGITE UMA DATA VÁLIDA");
     return;
   }
@@ -27,14 +30,15 @@ function findZodiacSign(dateInput: string): ChineseZodiacSign | undefined {
 
 function App() {
   const dateInput = useRef<HTMLInputElement>(null);
-  const [Sign, setSign] = useState<ChineseZodiacSign | object>({});
+  const [Sign, setSign] = useState<ChineseZodiacSign>();
 
   const getSign = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = dateInput.current != null ? dateInput.current.value : "";
     const sign = findZodiacSign(data);
-
-    setSign(sign != undefined ? sign : {});
+    if (sign) {
+      setSign(sign);
+    }
   };
 
   return (
@@ -54,12 +58,9 @@ function App() {
         />
       </form>
       <div className="flex flex-col gap-1">
-        <h3>{"name" in Sign ? Sign.name : "Nenhum"}</h3>
-        <p>
-          {"characteristics" in Sign
-            ? `Características: ${Sign.characteristics}`
-            : ""}
-        </p>
+        <h3>{Sign ? Sign.name : "Nenhum"}</h3>
+        <p>{Sign ? Sign.element : ""}</p>
+        <p>{Sign ? `Características: ${Sign.characteristics}` : ""}</p>
       </div>
     </div>
   );
