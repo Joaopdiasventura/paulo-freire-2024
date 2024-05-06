@@ -1,5 +1,5 @@
 import { FormEvent, useRef, useState } from "react";
-import { chineseZodiac, ChineseZodiacSign } from "./Signs";
+import { chineseZodiac, ChineseZodiacSign, elementColors } from "./Signs";
 
 function parseDate(input: string): Date {
   const [day, month, year] = input.split("/").map(Number);
@@ -42,8 +42,9 @@ function App() {
   };
 
   return (
-    <div className="w-screen h-screen bg-black text-white flex justify-center items-center flex-col">
-      <form onSubmit={getSign} className="flex flex-col gap-1 justify-center">
+    <div className="w-screen h-screen bg-black text-white flex justify-center items-center flex-col gap-5">
+      <h2 className="text-2xl">Digite a data de seu nascimento</h2>
+      <form onSubmit={getSign} className="flex flex-col gap-1.5 justify-center">
         <input
           type="text"
           ref={dateInput}
@@ -57,9 +58,19 @@ function App() {
           value="BUSCAR"
         />
       </form>
-      <div className="flex flex-col gap-1">
-        <h3>{Sign ? Sign.name : "Nenhum"}</h3>
-        <p>{Sign ? Sign.element : ""}</p>
+      <div className="flex flex-col gap-2 border rounded-lg p-3">
+        <h3 className="text-center text-2xl">
+          {Sign ? Sign.name.toLocaleUpperCase() : "Nenhum"}
+        </h3>
+        <div className="w-full flex justify-center">
+          <img
+            src={`src/assets/${Sign ? Sign.name : "Nenhum"}.jpg`}
+            className={`${Sign ? "flex" : "hidden"} w-80`}
+          />
+        </div>
+        <p className={`text-${Sign ? `[#F00]` : ""}`}>
+          {Sign ? Sign.element : ""}
+        </p>
         <p>{Sign ? `Características: ${Sign.characteristics}` : ""}</p>
       </div>
     </div>
