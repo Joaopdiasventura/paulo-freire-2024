@@ -44,6 +44,8 @@ function App() {
     const sign = findZodiacSign(data);
     if (sign) {
       setSign(sign);
+    } else {
+      alert("DIGITE UMA DATA VÁLIDA");
     }
   };
 
@@ -64,16 +66,14 @@ function App() {
           value="BUSCAR"
         />
       </form>
-      <div className="flex flex-col gap-2 border rounded-lg p-3">
-        <h3 className="text-center text-2xl">
-          {Sign ? Sign.name.toLocaleUpperCase() : "Nenhum"}
-        </h3>
-
-        {Sign && (
+      {Sign && (
+        <div className="flex flex-col gap-2 border rounded-lg p-3">
           <div>
             <div className="w-full flex flex-row justify-center">
               <img
-                src={`src/assets/${Sign.name.split(":")[0]}.png`}
+                src={`https://joaopdiasventura.github.io/paulo-freire-2024/src/assets/${
+                  Sign.name.split(":")[0]
+                }.png`}
                 className="w-80"
               />
             </div>
@@ -104,7 +104,9 @@ function App() {
                   {Sign.yin_yang ? "Yang" : "Yin"}:{" "}
                 </p>
                 <img
-                  src={`src/assets/${Sign.yin_yang ? "Yang" : "Yin"}.png`}
+                  src={`https://joaopdiasventura.github.io/paulo-freire-2024/src/assets/${
+                    Sign.yin_yang ? "Yang" : "Yin"
+                  }.png`}
                   className="w-7"
                 />
               </div>
@@ -113,8 +115,8 @@ function App() {
               {`Características: ${Sign.characteristics}`}
             </p>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
