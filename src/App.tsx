@@ -44,12 +44,11 @@ function App() {
     const sign = findZodiacSign(data);
     if (sign) {
       setSign(sign);
-      console.log(Sign.season.split(":")[0]);
     }
   };
 
   return (
-    <div className="w-screen h-screen bg-black text-white flex justify-center items-center flex-col gap-5">
+    <div className="w-screen h-screen text-white flex justify-center items-center flex-col gap-5">
       <h2 className="text-2xl text-center">Digite a data de seu nascimento</h2>
       <form onSubmit={getSign} className="flex flex-col gap-1.5 justify-center">
         <input
@@ -73,23 +72,40 @@ function App() {
         {Sign && (
           <div>
             <div className="w-full flex flex-row justify-center">
-              <img src={`src/assets/${Sign.name}.jpg`} className="w-80" />
+              <img
+                src={`src/assets/${Sign.name.split(":")[0]}.png`}
+                className="w-80"
+              />
             </div>
-            <div className="flex justify-around flex-wrap break-words">
-              <div className="w-full flex justify-around">
-                <p className={elementColors[Sign.element.split(":")[0]]}>
-                  {Sign.element}
-                </p>
-                <p> {Sign.season}</p>
-              </div>
-
-              <div className="w-full flex justify-around">
-                <p className={directionsColors[Sign.season.split(":")[0]]}>
-                  {directions[Sign.season.split(":")[0]]}
+            <div className="flex justify-around flex-wrap break-words items-center">
+              <p
+                className={`${
+                  elementColors[Sign.element.split(":")[0]]
+                } w-1/2 text-center`}
+              >
+                {Sign.element}
+              </p>
+              <p
+                className={`${
+                  directionsColors[Sign.season.split(":")[0]]
+                } w-1/2 text-center`}
+              >
+                {Sign.season}
+              </p>
+              <p
+                className={`${
+                  directionsColors[Sign.season.split(":")[0]]
+                } w-1/2 text-center`}
+              >
+                {directions[Sign.season.split(":")[0]]}
+              </p>
+              <div className="flex justify-center items-center w-1/2 text-center">
+                <p className={`text-zinc-${Sign.yin_yang ? "100" : "700"}`}>
+                  {Sign.yin_yang ? "Yang" : "Yin"}:{" "}
                 </p>
                 <img
-                  src={`src/assets/${Sign.yin_yang ? "Yang" : "Yin"}.webp`}
-                  alt=""
+                  src={`src/assets/${Sign.yin_yang ? "Yang" : "Yin"}.png`}
+                  className="w-7"
                 />
               </div>
             </div>

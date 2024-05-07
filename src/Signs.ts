@@ -9,7 +9,7 @@ export type ChineseZodiacSign = {
 
 export const chineseZodiac: ChineseZodiacSign[] = [
   {
-    name: "Tigre",
+    name: "Tigre: 虎",
     element: "Madeira: 木",
     season: "Primavera: 春",
     yin_yang: true,
@@ -29,7 +29,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     characteristics: "Independentes, orgulhosos, protetores e justos.",
   },
   {
-    name: "Coelho",
+    name: "Coelho: 兔",
     element: "Madeira: 木",
     season: "Primavera: 春",
     yin_yang: false,
@@ -49,7 +49,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     characteristics: "Gentis, quietos, inteligentes e sensíveis.",
   },
   {
-    name: "Dragão",
+    name: "Dragão: 龍",
     element: "Terra: 土",
     season: "Primavera: 春",
     yin_yang: true,
@@ -69,7 +69,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     characteristics: "Românticos, aventureiros, misteriosos e ambiciosos.",
   },
   {
-    name: "Cobra",
+    name: "Cobra: 蛇",
     element: "Fogo: 火",
     season: "Verão: 夏",
     yin_yang: false,
@@ -88,7 +88,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     characteristics: "Idealistas, entusiastas, curiosos e determinados.",
   },
   {
-    name: "Cavalo",
+    name: "Cavalo: 馬",
     element: "Fogo: 火",
     season: "Verão: 夏",
     yin_yang: true,
@@ -107,7 +107,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     characteristics: "Perseverantes, enérgicos, livres e distraídos.",
   },
   {
-    name: "Cabra",
+    name: "Cabra: 羊",
     element: "Terra: 土",
     season: "Verão: 夏",
     yin_yang: false,
@@ -126,7 +126,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     characteristics: "Gentis, persuasivos, reservados e determinados.",
   },
   {
-    name: "Macaco",
+    name: "Macaco: 猴",
     element: "Metal: 金",
     season: "Outono: 秋",
     yin_yang: true,
@@ -145,7 +145,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     characteristics: "Individualistas, curiosos, enérgicos e carinhosos.",
   },
   {
-    name: "Galo",
+    name: "Galo: 雞",
     element: "Metal: 金",
     season: "Outono: 秋",
     yin_yang: false,
@@ -164,7 +164,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     characteristics: "Sensitivos, espertos, criativos e amigáveis.",
   },
   {
-    name: "Cachorro",
+    name: "Cachorro: 狗",
     element: "Terra: 土",
     season: "Outono: 秋",
     yin_yang: true,
@@ -183,7 +183,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     characteristics: "Conservadores, justos, leais e caseiros.",
   },
   {
-    name: "Porco",
+    name: "Porco: 豬",
     element: "Água: 水",
     season: "Inverno: 冬",
     yin_yang: false,
@@ -202,7 +202,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     characteristics: "Coerentes, úteis, temperamentais e quietos.",
   },
   {
-    name: "Rato",
+    name: "Rato: 鼠",
     element: "Água: 水",
     season: "Inverno: 冬",
     yin_yang: true,
@@ -222,7 +222,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     characteristics: "Astutos, econômicos e organizados.",
   },
   {
-    name: "Boi",
+    name: "Boi: 牛",
     element: "Terra: 土",
     season: "Inverno: 冬",
     yin_yang: false,
@@ -255,12 +255,12 @@ export const directions = {
   Inverno: "Norte: 北",
   Verão: "Sul: 南",
   Primavera: "Leste: 東",
-  Outono: "Oeste: 西"
-}
+  Outono: "Oeste: 西",
+};
 
 export const directionsColors = {
   Inverno: "text-[#071aab]",
   Verão: "text-[#14c96c]",
   Primavera: "text-[#8c0404]",
-  Outono: "text-[#fffb17]"
-}
+  Outono: "text-[#fffb17]",
+};
