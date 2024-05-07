@@ -16,15 +16,12 @@ function parseDate(input: string): Date {
 }
 
 function findZodiacSign(dateInput: string): ChineseZodiacSign | undefined {
-  const date = parseDate(dateInput);
-  if (date == undefined || isNaN(date.getTime())) {
-    alert("DIGITE UMA DATA VÁLIDA");
-    return;
-  }
+  const date = new Date(dateInput);
 
   for (const sign of chineseZodiac) {
     for (const range of sign.dateRange) {
       const [start, end] = range.split("-").map(parseDate);
+
       if (date >= start && date <= end) {
         return sign;
       }
@@ -54,7 +51,7 @@ function App() {
       <h2 className="text-2xl text-center">Digite a data de seu nascimento</h2>
       <form onSubmit={getSign} className="flex flex-col gap-1.5 justify-center">
         <input
-          type="text"
+          type="date"
           ref={dateInput}
           placeholder="Ex: 07/12/2006"
           className="bg-transparent focus:ring-0 flex-1 rounded-lg outline-none border p-1 text-sm select-text"
@@ -68,6 +65,9 @@ function App() {
       </form>
       {Sign && (
         <div className="flex flex-col gap-2 border rounded-lg p-3">
+          <h1 className="text-center text-2xl">
+            {Sign.name.toLocaleUpperCase()}
+          </h1>
           <div>
             <div className="w-full flex flex-row justify-center">
               <img
