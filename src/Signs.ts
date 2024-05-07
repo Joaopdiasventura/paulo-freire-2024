@@ -1,8 +1,8 @@
 export type ChineseZodiacSign = {
   name: string;
+  season: string;
   element: string;
-  direction?: string;
-  season?: string;
+  yin_yang?: boolean;
   dateRange: string[];
   characteristics: string;
 };
@@ -12,6 +12,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     name: "Tigre",
     element: "Madeira: 木",
     season: "Primavera: 春",
+    yin_yang: true,
     dateRange: [
       "08/02/1902-28/02/1903",
       "26/01/1914-13/02/1915",
@@ -31,6 +32,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     name: "Coelho",
     element: "Madeira: 木",
     season: "Primavera: 春",
+    yin_yang: false,
     dateRange: [
       "29/01/1903-15/02/1904",
       "14/02/1915-02/02/1916",
@@ -50,6 +52,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     name: "Dragão",
     element: "Terra: 土",
     season: "Primavera: 春",
+    yin_yang: true,
     dateRange: [
       "16/02/1904-03/02/1905",
       "03/02/1916-22/01/1917",
@@ -69,6 +72,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     name: "Cobra",
     element: "Fogo: 火",
     season: "Verão: 夏",
+    yin_yang: false,
     dateRange: [
       "04/02/1905-24/01/1906",
       "23/01/1917-10/02/1918",
@@ -87,6 +91,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     name: "Cavalo",
     element: "Fogo: 火",
     season: "Verão: 夏",
+    yin_yang: true,
     dateRange: [
       "25/01/1906-12/02/1907",
       "11/02/1918-31/01/1919",
@@ -105,6 +110,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     name: "Cabra",
     element: "Terra: 土",
     season: "Verão: 夏",
+    yin_yang: false,
     dateRange: [
       "13/02/1907-01/02/1908",
       "01/02/1919-19/02/1920",
@@ -123,6 +129,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     name: "Macaco",
     element: "Metal: 金",
     season: "Outono: 秋",
+    yin_yang: true,
     dateRange: [
       "02/02/1908-21/01/1909",
       "20/02/1920-07/01/1921",
@@ -141,6 +148,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     name: "Galo",
     element: "Metal: 金",
     season: "Outono: 秋",
+    yin_yang: false,
     dateRange: [
       "22/01/1909-09/02/1910",
       "08/02/1921-27/01/1922",
@@ -159,6 +167,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     name: "Cachorro",
     element: "Terra: 土",
     season: "Outono: 秋",
+    yin_yang: true,
     dateRange: [
       "10/02/1910-29/01/1911",
       "28/01/1922-15/02/1923",
@@ -177,6 +186,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     name: "Porco",
     element: "Água: 水",
     season: "Inverno: 冬",
+    yin_yang: false,
     dateRange: [
       "30/01/1911-17/02/1912",
       "16/02/1923-04/02/1924",
@@ -195,6 +205,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     name: "Rato",
     element: "Água: 水",
     season: "Inverno: 冬",
+    yin_yang: true,
     dateRange: [
       "31/01/1900-18/02/1901",
       "18/02/1912-05/02/1913",
@@ -214,6 +225,7 @@ export const chineseZodiac: ChineseZodiacSign[] = [
     name: "Boi",
     element: "Terra: 土",
     season: "Inverno: 冬",
+    yin_yang: false,
     dateRange: [
       "19/02/1901-07/02/1902",
       "06/02/1913-25/01/1914",
@@ -232,9 +244,23 @@ export const chineseZodiac: ChineseZodiacSign[] = [
 ];
 
 export const elementColors = {
-  Metal: "#FF0000",
-  Terra: "#FF0",
-  Madeira: "#757575",
-  Fogo: "#00ff00",
-  Água: "#0000ff",
+  Metal: "text-[#878786]",
+  Terra: "text-[#ffbf1c]",
+  Madeira: "text-[#007802]",
+  Fogo: "text-[#8f1010]",
+  Água: "text-[#0384fc]",
 };
+
+export const directions = {
+  Inverno: "Norte: 北",
+  Verão: "Sul: 南",
+  Primavera: "Leste: 東",
+  Outono: "Oeste: 西"
+}
+
+export const directionsColors = {
+  Inverno: "text-[#071aab]",
+  Verão: "text-[#14c96c]",
+  Primavera: "text-[#8c0404]",
+  Outono: "text-[#fffb17]"
+}

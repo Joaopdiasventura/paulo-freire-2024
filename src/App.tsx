@@ -1,5 +1,11 @@
 import { FormEvent, useRef, useState } from "react";
-import { chineseZodiac, ChineseZodiacSign, elementColors } from "./Signs";
+import {
+  chineseZodiac,
+  ChineseZodiacSign,
+  directions,
+  directionsColors,
+  elementColors,
+} from "./Signs";
 
 function parseDate(input: string): Date {
   const [day, month, year] = input.split("/").map(Number);
@@ -38,12 +44,13 @@ function App() {
     const sign = findZodiacSign(data);
     if (sign) {
       setSign(sign);
+      console.log(Sign.season.split(":")[0]);
     }
   };
 
   return (
     <div className="w-screen h-screen bg-black text-white flex justify-center items-center flex-col gap-5">
-      <h2 className="text-2xl">Digite a data de seu nascimento</h2>
+      <h2 className="text-2xl text-center">Digite a data de seu nascimento</h2>
       <form onSubmit={getSign} className="flex flex-col gap-1.5 justify-center">
         <input
           type="text"
@@ -62,16 +69,35 @@ function App() {
         <h3 className="text-center text-2xl">
           {Sign ? Sign.name.toLocaleUpperCase() : "Nenhum"}
         </h3>
-        <div className="w-full flex justify-center">
-          <img
-            src={`src/assets/${Sign ? Sign.name : "Nenhum"}.jpg`}
-            className={`${Sign ? "flex" : "hidden"} w-80`}
-          />
-        </div>
-        <p className={`text-${Sign ? `[#F00]` : ""}`}>
-          {Sign ? Sign.element : ""}
-        </p>
-        <p>{Sign ? `Características: ${Sign.characteristics}` : ""}</p>
+
+        {Sign && (
+          <div>
+            <div className="w-full flex flex-row justify-center">
+              <img src={`src/assets/${Sign.name}.jpg`} className="w-80" />
+            </div>
+            <div className="flex justify-around flex-wrap break-words">
+              <div className="w-full flex justify-around">
+                <p className={elementColors[Sign.element.split(":")[0]]}>
+                  {Sign.element}
+                </p>
+                <p> {Sign.season}</p>
+              </div>
+
+              <div className="w-full flex justify-around">
+                <p className={directionsColors[Sign.season.split(":")[0]]}>
+                  {directions[Sign.season.split(":")[0]]}
+                </p>
+                <img
+                  src={`src/assets/${Sign.yin_yang ? "Yang" : "Yin"}.webp`}
+                  alt=""
+                />
+              </div>
+            </div>
+            <p className="w-full text-center">
+              {`Características: ${Sign.characteristics}`}
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
